@@ -145,7 +145,7 @@ Team Parakram (T10), Problem P5, School of Computer Science and Engineering, RV 
 | 1RUA24CSE0306 | Pradeep M Doddakaragi |
 | 1RUA24CSE0291 | Omkar Suresh Naik |
 | 1RUA24CSE0262 | Monish R |
-| 1RUA24CSE0300 | **Name to be confirmed** |
+| 1RUA24CSE0300 | Piyush Poonacha |
 | 1RUA24CSE0296 | Pasumarthy Krishna Tanish |
 
 ## Citation
