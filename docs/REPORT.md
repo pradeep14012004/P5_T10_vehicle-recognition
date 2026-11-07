@@ -12,9 +12,9 @@ This system detects vehicles in photos and identifies make, model and year acros
 | --- | --- |
 | Problem statement | P5: Intelligent Fine-Grained Vehicle Recognition and Analysis System |
 | Team ID | T10 |
-| USNs | 1RUA24CSE0262, 1RUA24CSE0306, 1RUA24CSE0291, 1RUA24CSE0300, 1RUA24CSE0296 |
-| Live application | PENDING |
-| GitHub repository | https://github.com/MONISH-cloud/P5_T10_vehicle-recognition |
+| USNs | 1RUA24CSE0306, 1RUA24CSE0291, 1RUA24CSE0262, 1RUA24CSE0300, 1RUA24CSE0296 |
+| Live application | https://huggingface.co/spaces/lonewolfpradeep/vehicle-recognition-system |
+| GitHub repository | https://github.com/pradeep14012004/P5_T10_vehicle-recognition |
 
 **Key test results (8,041 unseen images):**
 
