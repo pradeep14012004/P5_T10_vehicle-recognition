@@ -1,3 +1,13 @@
+---
+title: Vehicle Recognition T10
+emoji: 🚗
+colorFrom: yellow
+colorTo: gray
+sdk: gradio
+app_file: app.py
+pinned: false
+---
+
 # Fine-Grained Vehicle Recognition (P5, Team T10)
 
 Identifies the make, model and year of a car in a photograph, across the 196 classes of the Stanford Cars dataset. A fine-tuned YOLO11n detector locates the vehicle, a ConvNeXt V2 classifier names it, and classical computer vision handles image quality, a detector-free fallback region and a set of handcrafted features that are fused with the deep model. Confidence is calibrated, and when the system is unsure it answers at a coarser level (make and model, or make only) instead of guessing the year.
