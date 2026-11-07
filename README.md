@@ -6,6 +6,7 @@ colorTo: gray
 sdk: gradio
 app_file: app.py
 pinned: false
+python_version: "3.11"
 ---
 
 # Fine-Grained Vehicle Recognition (P5, Team T10)
