@@ -3,6 +3,6 @@ numpy
 scipy
 opencv-python-headless
 scikit-image
-onnxruntime==1.26.0
+onnxruntime-openvino==1.24.1
 pillow
 huggingface_hub
