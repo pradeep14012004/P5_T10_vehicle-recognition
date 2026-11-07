@@ -1,0 +1,26 @@
+name: Repair quantized ONNX classifier
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/convert_int8_conv_to_uint8.py"
+      - ".github/workflows/convert-onnx-model.yml"
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install conversion tools
+        run: python -m pip install --upgrade pip onnx onnxruntime==1.23.2 huggingface_hub
+      - name: Convert and validate classifier
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          MODEL_REPO: lonewolfpradeep/vehicle-recognition-models
+        run: python scripts/convert_int8_conv_to_uint8.py
