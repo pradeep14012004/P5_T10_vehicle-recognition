@@ -15,7 +15,7 @@ Identifies the make, model and year of a car in a photograph, across the 196 cla
 
 Submission for Problem Statement P5, *Intelligent Fine-Grained Vehicle Recognition and Analysis System*, Computer Vision Hackathon 2026.
 
-**Live demo:** the hosted link will be added here once deployment is complete. The app runs locally in two commands (see [Running the app](#running-the-app)).
+**Live demo:** https://huggingface.co/spaces/lonewolfpradeep/vehicle-recognition-system The app runs locally in two commands (see [Running the app](#running-the-app)).
 
 ## Results
 
@@ -138,7 +138,7 @@ Check the licences before any reuse: Stanford Cars is provided for research purp
 
 ## Team
 
-Team T10, School of Computer Science and Engineering, RV University.
+Team Parakram (T10), Problem P5, School of Computer Science and Engineering, RV University.
 
 | USN | Name |
 |---|---|
