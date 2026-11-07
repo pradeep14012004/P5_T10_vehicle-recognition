@@ -142,11 +142,11 @@ Team Parakram (T10), Problem P5, School of Computer Science and Engineering, RV 
 
 | USN | Name |
 |---|---|
+| 1RUA24CSE0306 | Pradeep M Doddakaragi |
+| 1RUA24CSE0291 | Omkar Suresh Naik |
 | 1RUA24CSE0262 | Monish R |
-| 1RUA24CSE0306 | |
-| 1RUA24CSE0291 | |
-| 1RUA24CSE0300 | |
-| 1RUA24CSE0296 | |
+| 1RUA24CSE0300 | **Name to be confirmed** |
+| 1RUA24CSE0296 | Pasumarthy Krishna Tanish |
 
 ## Citation
 
