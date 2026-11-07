@@ -15,7 +15,8 @@ Identifies the make, model and year of a car in a photograph, across the 196 cla
 
 Submission for Problem Statement P5, *Intelligent Fine-Grained Vehicle Recognition and Analysis System*, Computer Vision Hackathon 2026.
 
-**Live demo:** https://huggingface.co/spaces/lonewolfpradeep/vehicle-recognition-system The app runs locally in two commands (see [Running the app](#running-the-app)).
+**Live demo:** [Open the Vehicle Recognition application](https://huggingface.co/spaces/lonewolfpradeep/vehicle-recognition-system).  
+To run it locally, follow [Running the app](#running-the-app).
 
 ## Results
 
