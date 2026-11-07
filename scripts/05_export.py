@@ -55,7 +55,7 @@ class Calibration(CalibrationDataReader):
         return {"image": classifier_tensor(classical.crop(image, box), size, config["mean"], config["std"])[None]}
 
 
-quantize_dynamic(str(fp32), str(out / "classifier_int8_dynamic.onnx"), weight_type=QuantType.QInt8)
+quantize_dynamic(str(fp32), str(out / "classifier_int8_dynamic.onnx"), weight_type=QuantType.QUInt8)
 rows = read_manifest(args.manifest, "val")
 rows = [rows[i] for i in np.random.default_rng(42).permutation(len(rows))[:args.calibration_images]]
 try:
