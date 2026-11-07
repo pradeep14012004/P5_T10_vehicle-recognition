@@ -68,7 +68,10 @@ for index, node in enumerate(model.graph.node):
     converted += 1
 
 if converted == 0:
-    raise RuntimeError("No signed-INT8 ConvInteger nodes were converted; refusing to upload.")
+    has_conv_integer = any(n.op_type == "ConvInteger" for n in model.graph.node)
+    if not has_conv_integer:
+        raise RuntimeError("No ConvInteger nodes found; refusing to upload an unexpected graph.")
+    print("No signed-INT8 ConvInteger nodes remain; model appears already converted.")
 
 onnx.checker.check_model(model)
 onnx.save(model, str(OUT))
@@ -86,8 +89,11 @@ print(f"Validated converted graph: {converted} ConvInteger nodes; output shape={
 
 # Preserve original in the model repo, then replace the app's expected filename.
 api = HfApi(token=TOKEN)
-api.upload_file(path_or_fileobj=str(MODEL), path_in_repo="classifier_int8_dynamic_signed_backup.onnx",
-                repo_id=REPO, repo_type="model", commit_message="Back up signed INT8 classifier before compatibility conversion")
-api.upload_file(path_or_fileobj=str(OUT), path_in_repo="classifier_int8_dynamic.onnx",
-                repo_id=REPO, repo_type="model", commit_message="Convert ConvInteger weights to equivalent UINT8 for CPU inference")
-print("Uploaded validated UINT8-compatible classifier as classifier_int8_dynamic.onnx")
+if converted:
+    api.upload_file(path_or_fileobj=str(MODEL), path_in_repo="classifier_int8_dynamic_signed_backup.onnx",
+                    repo_id=REPO, repo_type="model", commit_message="Back up signed INT8 classifier before compatibility conversion")
+    api.upload_file(path_or_fileobj=str(OUT), path_in_repo="classifier_int8_dynamic.onnx",
+                    repo_id=REPO, repo_type="model", commit_message="Convert ConvInteger weights to equivalent UINT8 for CPU inference")
+    print("Uploaded validated UINT8-compatible classifier as classifier_int8_dynamic.onnx")
+else:
+    print("Already converted and validated; no model repository update needed.")
