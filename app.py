@@ -27,9 +27,22 @@ LEVEL_TEXT = {"full": "Make, model and year identified", "model": "Year uncertai
 
 def fetch_models() -> None:
     repo = os.environ.get("MODEL_REPO")
-    if repo and not (MODEL_DIR / "meta.json").exists():
+    required_files = (
+        "classifier_int8_dynamic.onnx",
+        "detector_finetuned.onnx",
+        "classical.npz",
+        "meta.json",
+    )
+    missing = [name for name in required_files if not (MODEL_DIR / name).is_file()]
+    if missing and repo:
         from huggingface_hub import snapshot_download
-        snapshot_download(repo, local_dir=MODEL_DIR)
+        snapshot_download(repo_id=repo, local_dir=str(MODEL_DIR))
+        missing = [name for name in required_files if not (MODEL_DIR / name).is_file()]
+    if missing:
+        raise FileNotFoundError(
+            "Missing model files: " + ", ".join(missing)
+            + ". Set MODEL_REPO to a Hugging Face model repository containing these files."
+        )
 
 
 PIPELINE, STARTUP_ERROR = None, None
