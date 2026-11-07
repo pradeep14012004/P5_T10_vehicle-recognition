@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HF_SPACE_ID: ${{ vars.HF_SPACE_ID }}
+          HF_SPACE_ID: lonewolfpradeep/vehicle-recognition-system
         run: |
           python -m pip install --upgrade huggingface_hub
           python - <<'PY'
@@ -40,9 +40,6 @@ jobs:
           space_id = os.environ.get("HF_SPACE_ID")
           if not token:
               raise SystemExit("Missing repository secret HF_TOKEN.")
-          if not space_id or "/" not in space_id:
-              raise SystemExit("Set repository variable HF_SPACE_ID to your-user/your-space-name.")
-
           api = HfApi(token=token)
           api.create_repo(repo_id=space_id, repo_type="space", space_sdk="gradio", exist_ok=True)
           api.upload_folder(
