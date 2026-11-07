@@ -151,3 +151,5 @@ Team T10, School of Computer Science and Engineering, RV University.
 ## Citation
 
 J. Krause, M. Stark, J. Deng and L. Fei-Fei. "3D Object Representations for Fine-Grained Categorization." 4th IEEE Workshop on 3D Representation and Recognition, ICCV 2013.
+
+<!-- Refresh Space after classifier compatibility conversion -->
