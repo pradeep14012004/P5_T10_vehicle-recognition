@@ -75,7 +75,9 @@ def parse_yolo_output(raw: np.ndarray, size: int, scale: float, left: int, top: 
 class OnnxDetector:
     def __init__(self, path, size: int = 640, class_ids=VEHICLE_CLASSES_COCO, confidence: float = 0.25, providers=None):
         import onnxruntime as ort
-        self.session = ort.InferenceSession(str(path), providers=providers or ["CPUExecutionProvider"])
+        available = ort.get_available_providers()
+        preferred = [p for p in ("OpenVINOExecutionProvider", "CPUExecutionProvider") if p in available]
+        self.session = ort.InferenceSession(str(path), providers=providers or preferred or ["CPUExecutionProvider"])
         self.input = self.session.get_inputs()[0].name
         self.size, self.class_ids, self.confidence = size, class_ids, confidence
 
